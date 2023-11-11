@@ -60,9 +60,10 @@
         
         \coordinate (a1) at (0 , \y/2 , \z/2);
         \coordinate (b1) at (0 ,-\y/2 , \z/2);
-        \tikzstyle{depthlabel}=[pos=0,text width=14*\z,text centered,sloped]       
-        
-        \path (c) edge ["\small\zlabels"',depthlabel](f); %depth label
+        \tikzstyle{depthlabel}=[pos=0.3, sloped, anchor=south, auto=false]       
+
+        \path (c) edge ["\small\zlabels"',depthlabel](f); %depth label, centered
+
         \path (b1) edge ["\ylabel",midway] (a1);  %height label 	  
         
         \tikzstyle{captionlabel}=[text width=15*\LastEastx/\scale,text centered] 
