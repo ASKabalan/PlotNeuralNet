@@ -35,10 +35,16 @@ def to_begin():
 
 # layers definition
 
-def to_input( pathfile, to='(-3,0,0)', width=8, height=8, name="temp" ):
+def to_input(pathfile,name, x=0, offset='(0,0,0)', to='(-3,0,0)', width=8, height=8, caption="image"):
     return r"""
-\node[canvas is zy plane at x=0] (""" + name + """) at """+ to +""" {\includegraphics[width="""+ str(width)+"cm"+""",height="""+ str(height)+"cm"+"""]{"""+ pathfile +"""}};
+% Node for the image
+\node[canvas is zy plane at x=""" + str(x) + """, shift={""" + offset + """}] (""" + name + """) at """ + to + """ {\includegraphics[width=""" + str(width) + """cm, height=""" + str(height) + """cm]{""" + pathfile + """}};
+
+% Creating an invisible sloped path below the image for the caption
+\path (""" + name + """.south west) -- (""" + name + """.south east) 
+    node[midway, sloped, below=0.2cm] (""" + name + """_caption) {""" + caption + """};
 """
+
 
 # Conv
 def to_Conv( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", width=1, height=40, depth=40, caption=" " ):
