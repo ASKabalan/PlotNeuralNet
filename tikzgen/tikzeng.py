@@ -47,12 +47,13 @@ def to_input(pathfile,name, x=0, offset='(0,0,0)', to='(-3,0,0)', width=8, heigh
 
 
 # Conv
-def to_Conv( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", width=1, height=40, depth=40, caption=" " ):
+def to_Conv( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", width=1, height=40, depth=40, caption=" ",captionsize="\\small"):
     return r"""
 \pic[shift={"""+ offset +"""}] at """+ to +""" 
     {Box={
         name=""" + name +""",
         caption="""+ caption +r""",
+        captionsize="""+ captionsize +""",
         xlabel={{"""+ str(n_filer) +""", }},
         zlabel="""+ str(s_filer) +""",
         fill=\ConvColor,
@@ -85,12 +86,13 @@ def to_ConvConvRelu( name, s_filer=256, n_filer=(64,64), offset="(0,0,0)", to="(
 
 
 # Pool
-def to_Pool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32, opacity=0.5, caption=" "):
+def to_Pool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32, opacity=0.5, caption=" ",captionsize="\\small"):
     return r"""
 \pic[shift={ """+ offset +""" }] at """+ to +""" 
     {Box={
         name="""+name+""",
         caption="""+ caption +r""",
+        captionsize="""+ captionsize +""",
         fill=\PoolColor,
         opacity="""+ str(opacity) +""",
         height="""+ str(height) +""",
@@ -101,12 +103,13 @@ def to_Pool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32, 
 """
 
 # unpool4, 
-def to_UnPool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32, opacity=0.5, caption=" "):
+def to_UnPool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32, opacity=0.5, caption=" ",captionsize="\\small"):
     return r"""
 \pic[shift={ """+ offset +""" }] at """+ to +""" 
     {Box={
         name="""+ name +r""",
         caption="""+ caption +r""",
+        captionsize="""+ captionsize +""",
         fill=\UnpoolColor,
         opacity="""+ str(opacity) +""",
         height="""+ str(height) +""",
@@ -124,6 +127,7 @@ def to_ConvRes( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", w
     {RightBandedBox={
         name="""+ name + """,
         caption="""+ caption + """,
+        captionsize="""+ captionsize +""",
         xlabel={{ """+ str(n_filer) + """, }},
         zlabel="""+ str(s_filer) +r""",
         fill={rgb:white,1;black,3},
@@ -138,12 +142,13 @@ def to_ConvRes( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", w
 
 
 # ConvSoftMax
-def to_ConvSoftMax( name, s_filer=40, offset="(0,0,0)", to="(0,0,0)", width=1, height=40, depth=40, caption=" " ):
+def to_ConvSoftMax( name, s_filer=40, offset="(0,0,0)", to="(0,0,0)", width=1, height=40, depth=40, caption=" " ,captionsize="\\small"):
     return r"""
 \pic[shift={"""+ offset +"""}] at """+ to +""" 
     {Box={
         name=""" + name +""",
         caption="""+ caption +""",
+        captionsize="""+ captionsize +""",
         zlabel="""+ str(s_filer) +""",
         fill=\SoftmaxColor,
         height="""+ str(height) +""",
@@ -154,12 +159,13 @@ def to_ConvSoftMax( name, s_filer=40, offset="(0,0,0)", to="(0,0,0)", width=1, h
 """
 
 # SoftMax
-def to_SoftMax( name, s_filer=10, offset="(0,0,0)", to="(0,0,0)", width=1.5, height=3, depth=25, opacity=0.8, caption=" " ):
+def to_SoftMax( name, s_filer=10, offset="(0,0,0)", to="(0,0,0)", width=1.5, height=3, depth=25, opacity=0.8, caption=" " ,captionsize="\\small"):
     return r"""
 \pic[shift={"""+ offset +"""}] at """+ to +""" 
     {Box={
         name=""" + name +""",
         caption="""+ caption +""",
+        captionsize="""+ captionsize +""",
         xlabel={{" ","dummy"}},
         zlabel="""+ str(s_filer) +""",
         fill=\SoftmaxColor,

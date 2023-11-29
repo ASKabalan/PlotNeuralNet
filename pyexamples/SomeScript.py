@@ -35,16 +35,16 @@ arch = [
     *block_Unconv( name="b9", bottom="end_b8", top='end_b9', s_filer="128x160", n_filer=128,  offset="(2.1,0,0)", size=(40,40,2.5), opacity=0.5 ),
     to_skip( of='ccr_b1', to='ccr_b9', pos=1.25),
     
-    to_ConvSoftMax( name="soft1", s_filer="128x160", offset="(0.75,0,0)", to="(end_b9-east)", width=1, height=40, depth=40, caption="128x160\\\\SIGMOID" ),
+    to_ConvSoftMax( name="soft1", s_filer="128x160", offset="(0.75,0,0)", to="(end_b9-east)", width=1, height=40, depth=40, caption="128x160\\\\SIGMOID",captionsize="\\large" ),
     to_connection( "end_b9", "soft1"),
     to_input( pathfile='SEGMENT_PREDIT.png' ,x = 3, offset="(0,5,0)", to="(soft1-east)",name="output_image", caption="Output Probabilistic map"),
     to_input( pathfile='SEGMENT_GT.png' ,x = 3, offset="(0,-5,0)", to="(soft1-east)",name="label_image", caption="Label (GT)"),
 
     #Legend
-    to_Conv( name="conv_legend", s_filer="", n_filer="", offset="(3,-5,0)",  to="(ccr_b1-south)", width=4, height=2, depth=2, caption="Convolution" ),
-    to_Pool(name="pool_legend", offset="(2,0,0)", to="(conv_legend-east)", width=4, height=2, depth=2, opacity=0.5,caption="maxpooling"),
-    to_UnPool(name="unpool_legend", offset="(2,0,0)", to="(pool_legend-east)", width=4, height=2, depth=2, opacity=0.5,caption="upsampling"),
-    to_ConvSoftMax( name="softmax_legend", s_filer="", offset="(2,0,0)", to="(unpool_legend-east)", width=4, height=2, depth=2, caption="Sigmoid" ),
+    to_Conv( name="conv_legend", s_filer="", n_filer="", offset="(1,-5,0)",  to="(ccr_b1-south)", width=4, height=2, depth=2, caption="Convolution" ,captionsize="\\huge"),
+    to_Pool(name="pool_legend", offset="(4,0,0)", to="(conv_legend-east)", width=4, height=2, depth=2, opacity=0.5,caption="maxpooling",captionsize="\\huge"),
+    to_UnPool(name="unpool_legend", offset="(4,0,0)", to="(pool_legend-east)", width=4, height=2, depth=2, opacity=0.5,caption="upsampling",captionsize="\\huge"),
+    to_ConvSoftMax( name="softmax_legend", s_filer="", offset="(4,0,0)", to="(unpool_legend-east)", width=4, height=2, depth=2, caption="Sigmoid",captionsize="\\huge" ),
 
     
     to_end() 
