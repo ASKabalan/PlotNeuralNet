@@ -52,8 +52,8 @@ def to_Conv( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", widt
 \pic[shift={"""+ offset +"""}] at """+ to +""" 
     {Box={
         name=""" + name +""",
-        caption="""+ caption +r""",
-        captionsize="""+ captionsize +""",
+        caption="""+ caption +""",
+        captionsize="""+ captionsize +r""",
         xlabel={{"""+ str(n_filer) +""", }},
         zlabel="""+ str(s_filer) +""",
         fill=\ConvColor,
@@ -91,8 +91,8 @@ def to_Pool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32, 
 \pic[shift={ """+ offset +""" }] at """+ to +""" 
     {Box={
         name="""+name+""",
-        caption="""+ caption +r""",
-        captionsize="""+ captionsize +""",
+        caption="""+ caption +""",
+        captionsize="""+ captionsize +r""",
         fill=\PoolColor,
         opacity="""+ str(opacity) +""",
         height="""+ str(height) +""",
@@ -107,9 +107,9 @@ def to_UnPool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32
     return r"""
 \pic[shift={ """+ offset +""" }] at """+ to +""" 
     {Box={
-        name="""+ name +r""",
-        caption="""+ caption +r""",
-        captionsize="""+ captionsize +""",
+        name="""+ name +""",
+        caption="""+ caption +""",
+        captionsize="""+ captionsize +r""",
         fill=\UnpoolColor,
         opacity="""+ str(opacity) +""",
         height="""+ str(height) +""",
@@ -121,7 +121,7 @@ def to_UnPool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32
 
 
 
-def to_ConvRes( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", width=6, height=40, depth=40, opacity=0.2, caption=" " ):
+def to_ConvRes( name, s_filer=256, n_filer=64, offset="(0,0,0)", to="(0,0,0)", width=6, height=40, depth=40, opacity=0.2, caption=" " ,captionsize="\\small"):
     return r"""
 \pic[shift={ """+ offset +""" }] at """+ to +""" 
     {RightBandedBox={
